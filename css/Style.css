@@ -2,6 +2,7 @@
     width: 70%;
     margin: auto;
     text-align: center;
+    height: 100vh;
 }
 
 .bigHeader {
@@ -16,7 +17,7 @@
   	background: -moz-linear-gradient(left,white,#1da1f2,white);
   	/* Standard syntax */
   	background: linear-gradient(to right,white,#1da1f2,white);
-      margin-bottom: 20px;
+    /*margin: 0;*/
 }
 
 #txtHashTag {
@@ -34,4 +35,17 @@
 .button {
     width: 50%;
     font-size: 3em;
+    border-radius: 5px;
+    transition: .3s;
+    background-color: #dddddd;
+}
+
+.button:hover {
+    transition: .3s;
+    background-color: #1da1f2;
+    border-color: #0071b7;
+}
+
+.button::selection {
+    border: 0;
 }
