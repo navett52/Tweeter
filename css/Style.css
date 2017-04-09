@@ -9,7 +9,7 @@
     font-size: 8em;
     color: white;
     font-family: sans-serif;
-    background: red; /* For browsers that do not support gradients */
+    background: #1da1f2; /* For browsers that do not support gradients */
 	background: -webkit-linear-gradient(left,white,#1da1f2,white);
   	/* For Opera 11.1 to 12.0 */
   	background: -o-linear-gradient(left,white,#1da1f2,white);
