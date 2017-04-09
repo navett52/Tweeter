@@ -1,0 +1,31 @@
+﻿#content {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+
+.bigHeader {
+    font-size: 8em;
+    color: white;
+    font-family: sans-serif;
+    background: red; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(left,white,#1da1f2,white);
+  	/* For Opera 11.1 to 12.0 */
+  	background: -o-linear-gradient(left,white,#1da1f2,white);
+  	/* For Fx 3.6 to 15 */
+  	background: -moz-linear-gradient(left,white,#1da1f2,white);
+  	/* Standard syntax */
+  	background: linear-gradient(to right,white,#1da1f2,white);
+}
+
+#hashtags {
+    
+}
+
+#buttons {
+    width: 100%;
+}
+
+button {
+    width: 50%;
+}

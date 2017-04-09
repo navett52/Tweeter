@@ -14,18 +14,19 @@ public partial class _Default : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        //setting volume   
-        sp.Volume = 100;
+        
     }
 
     protected void btnVoice_Click(object sender, EventArgs e)
     {
         //tweets = //Justin's code here;
-        foreach (string tweet in tweets)
-        {
-            //tweet to SpeakAsync method   
-            sp.SpeakAsync(tweet);
-        }
+        //foreach (string tweet in tweets)
+        //{
+            //tweet to SpeakAsync method
+            //setting volume   
+            sp.Volume = 100;
+            sp.SpeakAsync(txtHashTag.Text);
+        //}
 
     }
 }
