@@ -1,0 +1,51 @@
+﻿#content {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    height: 100vh;
+}
+
+.bigHeader {
+    font-size: 8em;
+    color: white;
+    font-family: sans-serif;
+    background: red; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(left,white,#1da1f2,white);
+  	/* For Opera 11.1 to 12.0 */
+  	background: -o-linear-gradient(left,white,#1da1f2,white);
+  	/* For Fx 3.6 to 15 */
+  	background: -moz-linear-gradient(left,white,#1da1f2,white);
+  	/* Standard syntax */
+  	background: linear-gradient(to right,white,#1da1f2,white);
+    /*margin: 0;*/
+}
+
+#txtHashTag {
+    width: 100%;
+    height: 1.2em;
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#buttons {
+    width: 100%;
+}
+
+.button {
+    width: 50%;
+    font-size: 3em;
+    border-radius: 5px;
+    transition: .3s;
+    background-color: #dddddd;
+}
+
+.button:hover {
+    transition: .3s;
+    background-color: #1da1f2;
+    border-color: #0071b7;
+}
+
+.button::selection {
+    border: 0;
+}
