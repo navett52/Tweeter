@@ -65,8 +65,8 @@ public partial class _Default : System.Web.UI.Page
         {
             chirp();
         }
-        tmrLiveUpdate.Enabled = true;
-        tmrLiveUpdate.Interval = 60000;
+        //tmrLiveUpdate.Enabled = true;
+        //tmrLiveUpdate.Interval = 60000;
         //aTimer.Enabled = true;
         //aTimer.Interval = 10000;
         //aTimer.Start();
@@ -107,8 +107,7 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnLogin_Click(object sender, EventArgs e)
     {
-        //EvansAuthTest test = new EvansAuthTest();
-        //test.getTweets("samuraijack");
+        readTweets.Clear();
     }
 
     protected bool newPosts()

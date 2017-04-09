@@ -12,12 +12,12 @@
         <asp:ScriptManager runat="server"></asp:ScriptManager>
         <asp:UpdatePanel runat="server">
             <ContentTemplate>
-                <asp:Timer ID="tmrLiveUpdate" Enabled="false" runat="server" Interval="60000" OnTick="btnVoice_Click"></asp:Timer>
+                <%--<asp:Timer ID="tmrLiveUpdate" Enabled="false" runat="server" Interval="60000" OnTick="btnVoice_Click"></asp:Timer>--%>
                 <div id="content">
                     <h1 class="bigHeader">Tweeter</h1>
                     <asp:TextBox ID="txtHashTag" runat="server" Text="#"></asp:TextBox><br />
                     <div id="buttons">
-                        <asp:Button class="button" ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" /><!--
+                        <asp:Button class="button" ID="btnLogin" runat="server" Text="Clear" OnClick="btnLogin_Click" /><!--
                     --><asp:Button class="button" ID="btnHashToSpeech" runat="server" Text="Chirp" OnClick="btnVoice_Click" />
                     </div>
                 </div>
