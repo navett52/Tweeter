@@ -11,10 +11,10 @@
     <form id="form1" runat="server">
         <div id="content">
             <h1 class="bigHeader">Tweeter</h1>
-            <asp:TextBox id="hashtags" ID="txtHashTag" runat="server"></asp:TextBox><br />
+            <asp:TextBox ID="txtHashTag" runat="server" text="#"></asp:TextBox><br />
             <div id="buttons">
-                <asp:button runat="server" text="Button" />
-                <asp:Button ID="btnHashToSpeech" runat="server" Text="Chirp" OnClick="btnVoice_Click" />
+                <asp:button class="button" runat="server" text="Login" /><!--
+                --><asp:Button class="button" ID="btnHashToSpeech" runat="server" Text="Chirp" OnClick="btnVoice_Click" />
             </div>
             
         </div>
