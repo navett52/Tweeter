@@ -17,8 +17,8 @@ public partial class _Default : System.Web.UI.Page
     {
         //setting volume   
         //sp.Volume = 100;
-        TweetReader reader = new TweetReader("bob");
-        reader.StartStream("#ufc210", lblTest);
+        //TweetReader reader = new TweetReader("bob");
+        //reader.StartStream("#ufc210", lblTest);
     }
 
     protected void btnVoice_Click(object sender, EventArgs e)
@@ -27,4 +27,11 @@ public partial class _Default : System.Web.UI.Page
        //
 
     }
+
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
+        EvansAuthTest test = new EvansAuthTest();
+        test.getTweets("samuraijack");
+    }
+
 }
