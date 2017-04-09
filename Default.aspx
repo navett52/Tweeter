@@ -1,7 +1,7 @@
 ﻿<%-- Arbitrary Change --%>
 
 
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+<%@ Page Language="C#" Async="true" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
 <!DOCTYPE html>
 
@@ -11,9 +11,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    
-    </div>
+        <div>
+            <asp:TextBox ID="twitterUser" runat="server"></asp:TextBox><br />
+            <asp:TextBox ID="hashTag" runat="server"></asp:TextBox><br />
+            <asp:Button ID="btnHashToSpeech" runat="server" Text="Read off Hashtags" OnClick="btnVoice_Click" />
+        </div>
     </form>
 </body>
 </html>
