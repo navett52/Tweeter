@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Web.UI.WebControls;
+using Tweetinvi;
 using Tweetinvi.Core.Credentials;
+//using Stream = Tweetinvi.Stream;
 
 /// <summary>
 /// Summary description for TweetReader
@@ -17,9 +20,19 @@ public class TweetReader
 
     public TweetReader(string hashTag)
     {
-        
-        this.hashTag = hashTag;
+        Auth.SetUserCredentials(consumerKey, consumerSecret, accessToken, accessTokenSecret);
+        this.hashTag = "samuraijack";
     }
-
+    public void StartStream(string hashtag, Label lbl)
+    {
+        var stream = Stream.CreateFilteredStream();
+        stream.AddTrack("samuraijack#");
+        stream.MatchingTweetReceived += (sender, args) =>
+        {
+            //Console.WriteLine("A tweet containing '#ufc210' has been found; the tweet is '" + args.Tweet + "'");
+            lbl.Text += "A tweet containing '#ufc210' has been found; the tweet is '" + args.Tweet + "'";
+        };
+        stream.StartStreamMatchingAllConditions();
+    }
     
 }
