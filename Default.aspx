@@ -13,7 +13,7 @@
             <h1 class="bigHeader">Tweeter</h1>
             <asp:TextBox ID="txtHashTag" runat="server" text="#"></asp:TextBox><br />
             <div id="buttons">
-                <asp:button class="button" ID="btnLogin" runat="server" text="Login" /><!--
+                <asp:button class="button" ID="btnLogin" runat="server" text="Login" OnClick="btnLogin_Click"/><!--
                 --><asp:Button class="button" ID="btnHashToSpeech" runat="server" Text="Chirp" OnClick="btnVoice_Click" />
             </div>
         </div>
