@@ -11,12 +11,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div> 
-                        <asp:TextBox ID="txtMsg" runat="server"></asp:TextBox><br />    
-                          <asp:Button ID="btVoice" runat="server"   
-                            Text="convert to speech" onclick="btnVoice_Click" />    
-
-    </div>
+        <div>
+            <asp:TextBox ID="twitterUser" runat="server"></asp:TextBox><br />
+            <asp:TextBox ID="hashTag" runat="server"></asp:TextBox><br />
+            <asp:Button ID="btnHashToSpeech" runat="server" Text="Read off Hashtags" OnClick="btnVoice_Click" />
+        </div>
     </form>
 </body>
 </html>

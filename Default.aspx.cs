@@ -8,19 +8,24 @@ using System.Web.UI.WebControls;
 
 public partial class _Default : System.Web.UI.Page
 {
-    string tweetToRead =  "";
+    List<string> tweets = new List<string>();
+    // creating the object of SpeechSynthesizer class  
+    SpeechSynthesizer sp = new SpeechSynthesizer();
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        //setting volume   
+        sp.Volume = 100;
     }
 
     protected void btnVoice_Click(object sender, EventArgs e)
     {
-        // creating the object of SpeechSynthesizer class  
-        SpeechSynthesizer sp = new SpeechSynthesizer();
-        //setting volume   
-        sp.Volume = 100;
-        //ing text box text to SpeakAsync method   
-        sp.SpeakAsync(txtMsg.Text);
+        //tweets = //Justin's code here;
+        foreach (string tweet in tweets)
+        {
+            //tweet to SpeakAsync method   
+            sp.SpeakAsync(tweet);
+        }
+
     }
 }
