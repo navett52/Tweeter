@@ -5,7 +5,6 @@ using System.Web;
 using Tweetinvi;
 using Tweetinvi.Models;
 using System.Data;
-using ASPSnippets.TwitterAPI;
 
 /// <summary>
 /// Summary description for EvansAuthTest
