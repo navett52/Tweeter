@@ -19,11 +19,21 @@
                     <div id="buttons">
                         <asp:Button class="button" ID="btnLogin" runat="server" Text="Clear" OnClick="btnLogin_Click" /><!--
                     --><asp:Button class="button" ID="btnHashToSpeech" runat="server" Text="Chirp" OnClick="btnVoice_Click" />
+                        <asp:Button class="button" ID="btnLatestTweet" runat="server" Text="Latest Tweet!" OnClick="btnLatestTweet_Click" />
                     </div>
                 </div>
-                <asp:Label ID="lblTest" runat="server" Text=""></asp:Label>
             </ContentTemplate>
         </asp:UpdatePanel>
     </form>
+    <%--<script type="text/javascript">
+        document.getElementById("btnHashToSpeech").onclick = refresh;
+        function refresh() {
+            var timer = setInterval(clickRefresh, 20000);
+            function clickRefresh() {
+                //document.getElementById("btnLogin").click();
+                document.getElementById("btnHashToSpeech").click();
+            }
+        }
+    </script>--%>
 </body>
 </html>

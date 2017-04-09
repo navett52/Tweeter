@@ -15,9 +15,9 @@ public partial class _Default : System.Web.UI.Page
 {
     List<string> tweets = new List<string>();
     static List<string> readTweets = new List<string>();
-    System.Timers.Timer aTimer = new System.Timers.Timer();
+    //System.Timers.Timer aTimer = new System.Timers.Timer();
     // creating the object of SpeechSynthesizer class  
-    SpeechSynthesizer sp = new SpeechSynthesizer();
+    SpeechSynthesizer sp = new SpeechSynthesizer();    
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -41,8 +41,10 @@ public partial class _Default : System.Web.UI.Page
         //    .Build();
 
         //// Tell quartz to schedule the job using our trigger
-        //sched.scheduleJob(job, trigger);
+        //sched.scheduleJob(job, trigger);=
+
     }
+
 
     protected void btnVoice_Click(object sender, EventArgs e)
     {
@@ -143,5 +145,11 @@ public partial class _Default : System.Web.UI.Page
                     readTweets.Add(tweets[i]);
                 }
         }
+    }
+
+    protected void btnLatestTweet_Click(object sender, EventArgs e)
+    {
+        var rawTweets = Timeline.GetHomeTimeline();      
+        sp.SpeakAsync(rawTweets.ElementAt(0).Text);
     }
 }

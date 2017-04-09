@@ -49,3 +49,7 @@
 .button::selection {
     border: 0;
 }
+
+#btnLatestTweet {
+    width: 100%;
+}
