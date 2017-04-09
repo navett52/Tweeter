@@ -12,6 +12,8 @@ using Tweetinvi.Parameters;
 public partial class _Default : System.Web.UI.Page
 {
     List<string> tweets = new List<string>();
+    List<string> readTweets = new List<string>();
+        
     // creating the object of SpeechSynthesizer class  
     SpeechSynthesizer sp = new SpeechSynthesizer();
 
@@ -30,25 +32,36 @@ public partial class _Default : System.Web.UI.Page
         GetUsersFriends getFriends = new GetUsersFriends();
         List<string> friends = new List<string>();
         friends = getFriends.getUserFriends(user);
-        //foreach(string friend in friends)
-        //{
-        //    var userTimelineParam = new UserTimelineParameters
-        //    {
-        //        MaximumNumberOfTweetsToRetrieve = 100,
-        //        IncludeRTS = true
-        //    };
-        //    List<ITweet> tweets2 = new List<ITweet>();
-        //    tweets2 = Timeline.GetUserTimeline(user, userTimelineParam).ToList();
-        //}
         var tweets = Timeline.GetHomeTimeline();
-        for(int i = 0; i < tweets.Count(); i++)
+        for (int i = 0; i < tweets.Count(); i++)
         {
-            if (tweets.ElementAt(i).Text.Contains(txtHashTag.Text))
+            if (readTweets.Count() != 0)
             {
-                //setting volume   
-                sp.Volume = 100;
-                //ing text box text to SpeakAsync method   
-                sp.SpeakAsync(tweets.ElementAt(i).Text);
+                for (int j = 0; j < readTweets.Count(); j++)
+                {
+                    if (readTweets.ElementAt(j).ToString() != tweets.ElementAt(i).ToString())
+                    {
+                        if (tweets.ElementAt(i).Text.Contains(txtHashTag.Text))
+                        {
+                            //setting volume   
+                            sp.Volume = 100;
+                            //ing text box text to SpeakAsync method   
+                            sp.SpeakAsync(tweets.ElementAt(i).Text);
+                            readTweets.Add(tweets.ElementAt(i).Text);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (tweets.ElementAt(i).Text.Contains(txtHashTag.Text))
+                {
+                    //setting volume   
+                    sp.Volume = 100;
+                    //ing text box text to SpeakAsync method   
+                    sp.SpeakAsync(tweets.ElementAt(i).Text);
+                    readTweets.Add(tweets.ElementAt(i).Text);
+                }
             }
         }
     }
