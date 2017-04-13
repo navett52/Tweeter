@@ -1,4 +1,4 @@
-﻿using Quartz;
+﻿// Jake, Justin and Evan
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,41 +15,17 @@ public partial class _Default : System.Web.UI.Page
 {
     List<string> tweets = new List<string>();
     static List<string> readTweets = new List<string>();
-    //System.Timers.Timer aTimer = new System.Timers.Timer();
-    // creating the object of SpeechSynthesizer class  
-    SpeechSynthesizer sp = new SpeechSynthesizer();    
+    // fancy voice stuff
+    SpeechSynthesizer sp = new SpeechSynthesizer();
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
-        {
-            //aTimer.Elapsed += new ElapsedEventHandler(btnVoice_Click);            
-            //aTimer.Enabled = false;
-            //tmrLiveUpdate.Enabled = false;
-        }
-        //IJobDetail job = JobBuilder.Create<HelloJob>()
-        //.WithIdentity("myJob", "group1") // name "myJob", group "group1"
-        //.Build();
-
-        //// Trigger the job to run now, and then every 40 seconds
-        //ITrigger trigger = TriggerBuilder.Create()
-        //    .WithIdentity("myTrigger", "group1")
-        //    .StartNow()
-        //    .WithSimpleSchedule(x => x
-        //        .WithIntervalInSeconds(40)
-        //        .RepeatForever())
-        //    .Build();
-
-        //// Tell quartz to schedule the job using our trigger
-        //sched.scheduleJob(job, trigger);=
-
+        // nothing here
     }
 
 
     protected void btnVoice_Click(object sender, EventArgs e)
     {
-        // aTimer.Enabled = false;
-        //tmrLiveUpdate.Enabled = false;
         string user = "@PimPucket";
         GetUsersFriends getFriends = new GetUsersFriends();
         List<string> friends = new List<string>();
@@ -67,50 +43,12 @@ public partial class _Default : System.Web.UI.Page
         {
             chirp();
         }
-        //tmrLiveUpdate.Enabled = true;
-        //tmrLiveUpdate.Interval = 60000;
-        //aTimer.Enabled = true;
-        //aTimer.Interval = 10000;
-        //aTimer.Start();
-
-        /*
-        for (int i = 0; i < tweets.Count; i++)
-        {
-            if (readTweets.Count != 0)
-            {
-                for (int j = 0; j < readTweets.Count; j++)
-                {
-                    if (readTweets[j] != tweets[i])
-                    {
-                        if (tweets[i].Contains(txtHashTag.Text))
-                        {
-                            //setting volume   
-                            sp.Volume = 100;
-                            //ing text box text to SpeakAsync method   
-                            sp.SpeakAsync(tweets[i]);
-                            readTweets.Add(tweets[i]);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                if (tweets[i].Contains(txtHashTag.Text))
-                {
-                    //setting volume   
-                    sp.Volume = 100;
-                    //ing text box text to SpeakAsync method   
-                    sp.SpeakAsync(tweets[i]);
-                    readTweets.Add(tweets[i]);
-                }
-            }
-        }*/
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)
     {
         readTweets.Clear();
-        
+        tweets.Clear();
     }
 
     protected bool newPosts()
@@ -127,30 +65,46 @@ public partial class _Default : System.Web.UI.Page
 
     protected void chirp()
     {
+        List<string> tweetsToRead = new List<string>();
         int tweetsWithHashCount = 0;
         for (int i = 0; i < tweets.Count; i++)
         {
             if (tweets[i].Contains(txtHashTag.Text))
-            { tweetsWithHashCount++; }
+            { tweetsToRead.Add(tweets[i]); }
         }
         int tweetCount = tweetsWithHashCount - readTweets.Count;
-        if (tweetCount != 0)
+        for (int i = 0; i < tweetsToRead.Count; i++)
         {
-            for (int i = 0; i < tweetCount; i++)
-                if (tweets[i].Contains(txtHashTag.Text))
-                {
-                    //setting volume   
-                    sp.Volume = 100;
-                    //ing text box text to SpeakAsync method   
-                    sp.SpeakAsync(tweets[i]);
-                    readTweets.Add(tweets[i]);
-                }
+            //setting volume   
+            sp.Volume = 100;
+            //ing text box text to SpeakAsync method   
+            sp.SpeakAsync(tweetsToRead[i].ToString());
+            readTweets.Add(tweetsToRead[i].ToString());
         }
     }
 
+
     protected void btnLatestTweet_Click(object sender, EventArgs e)
     {
-        var rawTweets = Timeline.GetHomeTimeline();      
-        sp.SpeakAsync(rawTweets.ElementAt(0).Text);
+        var rawTweets = Timeline.GetHomeTimeline();
+        string latestTweet = "";
+        for (int i = 0; i < rawTweets.Count(); i++)
+        {
+            if (!tweets.Contains(rawTweets.ElementAt(i).ToString()))
+            {
+                tweets.Add(rawTweets.ElementAt(i).ToString());
+
+            }
+        }
+        for(int i = 0; i < tweets.Count; i ++)
+        {
+            if (tweets[i].Contains(txtHashTag.Text))
+            {
+                latestTweet = tweets[i].ToString();
+                break;
+            }
+        }
+        sp.SpeakAsync(latestTweet.ToString());
+        readTweets.Add(latestTweet.ToString());
     }
 }

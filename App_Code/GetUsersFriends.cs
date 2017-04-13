@@ -20,12 +20,12 @@ public class GetUsersFriends
         var user = User.GetUserFromScreenName(userName);
 
         // Get the first 250 friends of the user
-        var friends = User.GetFriends(user);
-        for(int i = 0; i < friends.Count(); i++)
-        {
+        //var friends = User.GetFriends(user);
+        //for(int i = 0; i < friends.Count(); i++)
+        //{
 
-            friendList.Add(friends.ElementAt(i).ToString());
-        }
+        //    friendList.Add(friends.ElementAt(i).ToString());
+        //}
         return friendList;
     }
 }
