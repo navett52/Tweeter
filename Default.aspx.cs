@@ -86,6 +86,10 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnLatestTweet_Click(object sender, EventArgs e)
     {
+        string user = "@PimPucket";
+        GetUsersFriends getFriends = new GetUsersFriends();
+        List<string> friends = new List<string>();
+        friends = getFriends.getUserFriends(user);
         var rawTweets = Timeline.GetHomeTimeline();
         string latestTweet = "";
         for (int i = 0; i < rawTweets.Count(); i++)
